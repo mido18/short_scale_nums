@@ -14,6 +14,7 @@ module ShortScaleNums
   # * *Returns* :
   #   - the prettified number format ex: 1M
   def prettified_number(num)
+    return "Please enter valid number" unless is_num?(num)
     sign = sign_creator(num)
     num  = num.to_i.abs
     return num.to_s if NUMERALS.first > num or NUMERALS.last <= num
@@ -85,6 +86,17 @@ module ShortScaleNums
   #   - negative sign if number is negative
   def sign_creator(num)
     "-" if num < 0
+  end
+
+  # Check if number
+  # * *Args*    :
+  # +num+:: input number
+  # * *Returns* :
+  #   - true if valid number false if string
+  def is_num?(num)
+    !!Integer(num)
+  rescue ArgumentError, TypeError
+    false
   end
 
 end

@@ -15,5 +15,6 @@ include ShortScaleNums
 # puts prettified_number(222500000.34)
 # puts prettified_number(532)
 puts prettified_number(1123456789)
+puts prettified_number("1123456789s")
 require "irb"
 IRB.start

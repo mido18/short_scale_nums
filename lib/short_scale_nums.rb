@@ -14,12 +14,13 @@ module ShortScaleNums
   # * *Returns* :
   #   - the prettified number format ex: 1M
   def prettified_number(num)
-    num = num.to_i
+    sign = sign_creator(num)
+    num  = num.to_i.abs
     return num.to_s if NUMERALS.first > num or NUMERALS.last <= num
     NUMERALS.each do |short_scale|
       if short_scale >= num
         nums_arr = break_number(num,short_scale)
-        break build_string(nums_arr,num)
+        break "#{sign}#{build_string(nums_arr,num)}"
       end
     end
   end
@@ -75,6 +76,14 @@ module ShortScaleNums
     return 'M' if NUMERALS[1] >  num
     return 'B' if NUMERALS[2] >  num
     return 'T' if NUMERALS[3] >  num
+  end
+
+  def sign_creator(num)
+    "-" if negative?(num)
+  end
+
+  def negative?(num)
+    num < 0
   end
 
 end

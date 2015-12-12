@@ -22,7 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+include ShortScaleNums
+
+puts prettified_number(1000000)
+```
+Result will be 1M
 
 ## Development
 

@@ -78,12 +78,13 @@ module ShortScaleNums
     return 'T' if NUMERALS[3] >  num
   end
 
+  # Responsible adding negative sign
+  # * *Args*    :
+  # +num+:: input number
+  # * *Returns* :
+  #   - negative sign if number is negative
   def sign_creator(num)
-    "-" if negative?(num)
-  end
-
-  def negative?(num)
-    num < 0
+    "-" if num < 0
   end
 
 end

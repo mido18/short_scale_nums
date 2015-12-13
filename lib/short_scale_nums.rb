@@ -17,7 +17,7 @@ module ShortScaleNums
     return "Please enter valid number" unless is_num?(num)
     sign = sign_creator(num)
     num  = num.to_i.abs
-    return num.to_s if NUMERALS.first > num or NUMERALS.last <= num
+    return "#{sign}#{num.to_s }"if NUMERALS.first > num or NUMERALS.last <= num
     NUMERALS.each do |short_scale|
       if short_scale >= num
         nums_arr = break_number(num,short_scale)
